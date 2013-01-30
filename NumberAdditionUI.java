@@ -2,7 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package my.numberaddition;
+//package my.numberaddition;
+import it.sauronsoftware.ftp4j.*;
 
 /**
  *
@@ -216,7 +217,7 @@ public class NumberAdditionUI extends javax.swing.JFrame {
         int port;
         
         //Initiate FTP Class
-        //FTPClient client = new FTPClient();
+        FTPClient client = new FTPClient();
         
         
         
