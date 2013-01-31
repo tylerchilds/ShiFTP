@@ -45,23 +45,23 @@ public class ShiFTPUI extends javax.swing.JFrame {
         list1 = new java.awt.List();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        hostboxlabel = new javax.swing.JLabel();
+        unamelabel = new javax.swing.JLabel();
+        passlabel = new javax.swing.JLabel();
+        portnolabel = new javax.swing.JLabel();
         hostbox = new javax.swing.JTextField();
         uname = new javax.swing.JTextField();
         pass = new javax.swing.JTextField();
         portno = new javax.swing.JTextField();
         connect = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        coninfolabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         conninfo = new javax.swing.JTextPane();
         jSplitPane1 = new javax.swing.JSplitPane();
-        list3 = new java.awt.List();
-        list4 = new java.awt.List();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        serverfiledisplay = new java.awt.List();
+        localfiledisplay = new java.awt.List();
+        localfilelabel = new javax.swing.JLabel();
+        serverfilelabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ShiFTP - Open Source FTP Client");
@@ -74,13 +74,13 @@ public class ShiFTPUI extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Connect"));
 
-        jLabel1.setText("Host:");
+        hostboxlabel.setText("Host:");
 
-        jLabel2.setText("Username:");
+        unamelabel.setText("Username:");
 
-        jLabel3.setText("Password:");
+        passlabel.setText("Password:");
 
-        jLabel4.setText("Port:");
+        portnolabel.setText("Port:");
 
         hostbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,19 +113,19 @@ public class ShiFTPUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(hostboxlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hostbox, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(unamelabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(uname, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(passlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(portnolabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(portno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -136,10 +136,10 @@ public class ShiFTPUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
+                    .addComponent(hostboxlabel)
+                    .addComponent(unamelabel)
+                    .addComponent(passlabel)
+                    .addComponent(portnolabel)
                     .addComponent(hostbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(uname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,49 +148,48 @@ public class ShiFTPUI extends javax.swing.JFrame {
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        jLabel5.setText("Connection Information:");
+        coninfolabel.setText("Connection Information:");
 
         jScrollPane2.setViewportView(conninfo);
 
         jSplitPane1.setDividerLocation(365);
         jSplitPane1.setVerifyInputWhenFocusTarget(false);
 
-        list3.addActionListener(new java.awt.event.ActionListener() {
+        serverfiledisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                list3ActionPerformed(evt);
+                serverfiledisplayActionPerformed(evt);
             }
         });
-        jSplitPane1.setRightComponent(list3);
+        jSplitPane1.setRightComponent(serverfiledisplay);
 
-        list4.addActionListener(new java.awt.event.ActionListener() {
+        localfiledisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                list4ActionPerformed(evt);
+                localfiledisplayActionPerformed(evt);
             }
         });
-        jSplitPane1.setLeftComponent(list4);
+        jSplitPane1.setLeftComponent(localfiledisplay);
 
-        jLabel6.setText("Local Files");
+        localfilelabel.setText("Local Files");
 
-        jLabel7.setText("Server Files");
+        serverfilelabel.setText("Server Files");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSplitPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(localfilelabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)))
+                        .addComponent(serverfilelabel))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(coninfolabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,14 +197,14 @@ public class ShiFTPUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(coninfolabel)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(localfilelabel)
+                    .addComponent(serverfilelabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(118, Short.MAX_VALUE))
@@ -271,13 +270,13 @@ public class ShiFTPUI extends javax.swing.JFrame {
         conninfo.setText(filelist);
     }//GEN-LAST:event_connectActionPerformed
 
-    private void list4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list4ActionPerformed
+    private void localfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localfiledisplayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_list4ActionPerformed
+    }//GEN-LAST:event_localfiledisplayActionPerformed
 
-    private void list3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list3ActionPerformed
+    private void serverfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverfiledisplayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_list3ActionPerformed
+    }//GEN-LAST:event_serverfiledisplayActionPerformed
 
     
     /**
@@ -315,26 +314,26 @@ public class ShiFTPUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel coninfolabel;
     private javax.swing.JButton connect;
     private javax.swing.JTextPane conninfo;
     private javax.swing.JTextField hostbox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel hostboxlabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private java.awt.List list1;
-    private java.awt.List list3;
-    private java.awt.List list4;
+    private java.awt.List localfiledisplay;
+    private javax.swing.JLabel localfilelabel;
     private javax.swing.JTextField pass;
+    private javax.swing.JLabel passlabel;
     private javax.swing.JTextField portno;
+    private javax.swing.JLabel portnolabel;
     private java.awt.ScrollPane scrollPane1;
+    private java.awt.List serverfiledisplay;
+    private javax.swing.JLabel serverfilelabel;
     private javax.swing.JTextField uname;
+    private javax.swing.JLabel unamelabel;
     // End of variables declaration//GEN-END:variables
 }
