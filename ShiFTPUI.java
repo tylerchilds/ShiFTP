@@ -12,12 +12,12 @@ import java.util.logging.Logger;
  *
  * @author Frog
  */
-public class NumberAdditionUI extends javax.swing.JFrame {
+public class ShiFTPUI extends javax.swing.JFrame {
 
     /**
-     * Creates new form NumberAdditionUI
+     * Creates new form ShiFTPUI
      */
-    public NumberAdditionUI() {
+    public ShiFTPUI() {
         initComponents();
     }
 
@@ -41,6 +41,9 @@ public class NumberAdditionUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        scrollPane1 = new java.awt.ScrollPane();
+        list1 = new java.awt.List();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,6 +57,11 @@ public class NumberAdditionUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         conninfo = new javax.swing.JTextPane();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        list3 = new java.awt.List();
+        list4 = new java.awt.List();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ShiFTP - Open Source FTP Client");
@@ -144,21 +152,45 @@ public class NumberAdditionUI extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(conninfo);
 
+        jSplitPane1.setDividerLocation(365);
+        jSplitPane1.setVerifyInputWhenFocusTarget(false);
+
+        list3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list3ActionPerformed(evt);
+            }
+        });
+        jSplitPane1.setRightComponent(list3);
+
+        list4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                list4ActionPerformed(evt);
+            }
+        });
+        jSplitPane1.setLeftComponent(list4);
+
+        jLabel6.setText("Local Files");
+
+        jLabel7.setText("Server Files");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSplitPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -166,14 +198,17 @@ public class NumberAdditionUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(267, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
@@ -206,17 +241,17 @@ public class NumberAdditionUI extends javax.swing.JFrame {
         try {
             client.connect(host,portint);
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
-            Logger.getLogger(NumberAdditionUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             client.login(username,password);
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
-            Logger.getLogger(NumberAdditionUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             files = client.listNames();
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException | FTPDataTransferException | FTPAbortedException | FTPListParseException ex) {
-            Logger.getLogger(NumberAdditionUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //Loop through file array to grab names
@@ -236,6 +271,14 @@ public class NumberAdditionUI extends javax.swing.JFrame {
         conninfo.setText(filelist);
     }//GEN-LAST:event_connectActionPerformed
 
+    private void list4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_list4ActionPerformed
+
+    private void list3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_list3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_list3ActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -254,20 +297,20 @@ public class NumberAdditionUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NumberAdditionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NumberAdditionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NumberAdditionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NumberAdditionUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
          
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NumberAdditionUI().setVisible(true);
+                new ShiFTPUI().setVisible(true);
             }
         });
     }
@@ -280,10 +323,18 @@ public class NumberAdditionUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private java.awt.List list1;
+    private java.awt.List list3;
+    private java.awt.List list4;
     private javax.swing.JTextField pass;
     private javax.swing.JTextField portno;
+    private java.awt.ScrollPane scrollPane1;
     private javax.swing.JTextField uname;
     // End of variables declaration//GEN-END:variables
 }
