@@ -172,7 +172,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="uname">
         </Component>
-        <Component class="javax.swing.JTextField" name="pass">
+        <Component class="javax.swing.JPasswordField" name="pass">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
           </Events>

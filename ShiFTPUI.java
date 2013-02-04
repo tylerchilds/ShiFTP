@@ -51,7 +51,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         portnolabel = new javax.swing.JLabel();
         hostbox = new javax.swing.JTextField();
         uname = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
+        pass = new javax.swing.JPasswordField();
         portno = new javax.swing.JTextField();
         connect = new javax.swing.JButton();
         coninfolabel = new javax.swing.JLabel();
@@ -326,7 +326,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
     private java.awt.List list1;
     private java.awt.List localfiledisplay;
     private javax.swing.JLabel localfilelabel;
-    private javax.swing.JTextField pass;
+    private javax.swing.JPasswordField pass;
     private javax.swing.JLabel passlabel;
     private javax.swing.JTextField portno;
     private javax.swing.JLabel portnolabel;
