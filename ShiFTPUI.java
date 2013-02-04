@@ -82,12 +82,16 @@ public class ShiFTPUI extends javax.swing.JFrame {
 
         portnolabel.setText("Port:");
 
+        hostbox.setText("drwestfall.info");
         hostbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hostboxActionPerformed(evt);
             }
         });
 
+        uname.setText("project01");
+
+        pass.setText("csci355");
         pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passActionPerformed(evt);
@@ -200,14 +204,14 @@ public class ShiFTPUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(coninfolabel)
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(localfilelabel)
                     .addComponent(serverfilelabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,15 +263,13 @@ public class ShiFTPUI extends javax.swing.JFrame {
         {
          if (filelist.length() != 0)
          {
-            filelist = filelist + "\n" + files[i];
+            serverfiledisplay.add(files[i]);
          }
          else
          {
              filelist = files[i];
          }
-        }
-        
-        conninfo.setText(filelist);
+        }  
     }//GEN-LAST:event_connectActionPerformed
 
     private void localfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localfiledisplayActionPerformed

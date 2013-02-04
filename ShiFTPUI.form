@@ -77,15 +77,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="coninfolabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="87" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="localfilelabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="serverfilelabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSplitPane1" min="-2" pref="222" max="-2" attributes="0"/>
-              <EmptySpace pref="118" max="32767" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -166,13 +166,22 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="hostbox">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="drwestfall.info"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hostboxActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="uname">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="project01"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pass">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="csci355"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
           </Events>
