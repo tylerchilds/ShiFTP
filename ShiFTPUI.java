@@ -4,9 +4,11 @@
  */
 //package my.numberaddition;
 import it.sauronsoftware.ftp4j.*;
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.*;
+import java.nio.file.*;
 
 /**
  *
@@ -279,7 +281,32 @@ public class ShiFTPUI extends javax.swing.JFrame {
     private void serverfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverfiledisplayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_serverfiledisplayActionPerformed
-
+    
+    private static void displayLocalFiles(Path p1)
+    {
+        //Loop through file array to grab names
+        
+        // I will use similar code to display local files
+        
+        /*String filelist = "";
+        for(int i =0;i<files.length;i++)
+        {
+         if (filelist.length() != 0)
+         {
+            serverfiledisplay.add(files[i]);
+         }
+         else
+         {
+             filelist = files[i];
+         }
+        }  */
+    }
+    
+    private static Path changeLocalDir(Path p1)
+    {
+        
+        return p1;
+    }
     
     /**
      * @param args the command line arguments
@@ -314,6 +341,12 @@ public class ShiFTPUI extends javax.swing.JFrame {
                 new ShiFTPUI().setVisible(true);
             }
         });
+        
+        // Initialize Local File System
+        Path localPath = Paths.get(System.getProperty("user.home"));
+        displayLocalFiles(localPath);
+        
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel coninfolabel;
