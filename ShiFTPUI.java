@@ -35,6 +35,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         String host;
         String port;
         String[] files;
+        static String localPath;
         
         //Initiate FTP Class
         FTPClient client = new FTPClient();
@@ -58,7 +59,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         connect = new javax.swing.JButton();
         coninfolabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        conninfo = new javax.swing.JTextField();
+        conninfo = new javax.swing.JTextPane();
         jSplitPane1 = new javax.swing.JSplitPane();
         serverfiledisplay = new java.awt.List();
         localfiledisplay = new java.awt.List();
@@ -260,18 +261,12 @@ public class ShiFTPUI extends javax.swing.JFrame {
         }
         
         //Loop through file array to grab names
-        String filelist = "";
         for(int i =0;i<files.length;i++)
         {
-         if (filelist.length() != 0)
-         {
             serverfiledisplay.add(files[i]);
-         }
-         else
-         {
-             filelist = files[i];
-         }
         }  
+        
+        
     }//GEN-LAST:event_connectActionPerformed
 
     private void localfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localfiledisplayActionPerformed
@@ -282,27 +277,18 @@ public class ShiFTPUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_serverfiledisplayActionPerformed
     
-    private static void displayLocalFiles(Path p1)
+    private void displayLocalFiles(String p1)
     {
-        //Loop through file array to grab names
-        
-        // I will use similar code to display local files
-        
-        /*String filelist = "";
-        for(int i =0;i<files.length;i++)
+        File directory = new File(p1);
+
+        File[] fList = directory.listFiles();
+        for (File file : fList)
         {
-         if (filelist.length() != 0)
-         {
-            serverfiledisplay.add(files[i]);
-         }
-         else
-         {
-             filelist = files[i];
-         }
-        }  */
+            localfiledisplay.add(file.getName());
+        }
     }
     
-    private static Path changeLocalDir(Path p1)
+    private static String changeLocalDir(String p1)
     {
         
         return p1;
@@ -334,7 +320,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-         
+        ShiFTPUI connection = new ShiFTPUI(); 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -342,11 +328,8 @@ public class ShiFTPUI extends javax.swing.JFrame {
             }
         });
         
-        // Initialize Local File System
-        Path localPath = Paths.get(System.getProperty("user.home"));
-        displayLocalFiles(localPath);
-        
-        
+        localPath = System.getProperty("user.home");
+        connection.displayLocalFiles(localPath);  
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel coninfolabel;
