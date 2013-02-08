@@ -58,7 +58,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         connect = new javax.swing.JButton();
         coninfolabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        conninfo = new javax.awt.List();
+        conninfo = new javax.swing.JTextField();
         jSplitPane1 = new javax.swing.JSplitPane();
         serverfiledisplay = new java.awt.List();
         localfiledisplay = new java.awt.List();
