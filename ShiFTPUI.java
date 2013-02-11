@@ -21,6 +21,8 @@ public class ShiFTPUI extends javax.swing.JFrame {
      */
     public ShiFTPUI() {
         initComponents();
+        localPath = System.getProperty("user.home");
+        displayLocalFiles(localPath); 
     }
 
     /**
@@ -320,16 +322,13 @@ public class ShiFTPUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ShiFTPUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        ShiFTPUI connection = new ShiFTPUI(); 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ShiFTPUI().setVisible(true);
             }
         });
-        
-        localPath = System.getProperty("user.home");
-        connection.displayLocalFiles(localPath);  
+         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel coninfolabel;
