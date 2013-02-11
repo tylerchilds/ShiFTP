@@ -73,7 +73,6 @@ public class ShiFTPUI extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setName("ShiFTP"); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Connect"));
 
