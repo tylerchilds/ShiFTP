@@ -60,13 +60,12 @@ public class ShiFTPUI extends javax.swing.JFrame {
         portno = new javax.swing.JTextField();
         connect = new javax.swing.JButton();
         coninfolabel = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        conninfo = new javax.swing.JTextPane();
         jSplitPane1 = new javax.swing.JSplitPane();
         serverfiledisplay = new java.awt.List();
         localfiledisplay = new java.awt.List();
         localfilelabel = new javax.swing.JLabel();
         serverfilelabel = new javax.swing.JLabel();
+        conninfo = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ShiFTP - Open Source FTP Client");
@@ -138,7 +137,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
                 .addComponent(portno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(connect)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,8 +156,6 @@ public class ShiFTPUI extends javax.swing.JFrame {
         );
 
         coninfolabel.setText("Connection Information:");
-
-        jScrollPane2.setViewportView(conninfo);
 
         jSplitPane1.setDividerLocation(365);
         jSplitPane1.setVerifyInputWhenFocusTarget(false);
@@ -181,6 +178,12 @@ public class ShiFTPUI extends javax.swing.JFrame {
 
         serverfilelabel.setText("Server Files");
 
+        conninfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conninfoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,10 +197,10 @@ public class ShiFTPUI extends javax.swing.JFrame {
                         .addComponent(localfilelabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(serverfilelabel))
-                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(coninfolabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(conninfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -207,15 +210,15 @@ public class ShiFTPUI extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(coninfolabel)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(conninfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(localfilelabel)
                     .addComponent(serverfilelabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,15 +256,17 @@ public class ShiFTPUI extends javax.swing.JFrame {
                     files = client.listNames();
                 } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException | FTPDataTransferException | FTPAbortedException | FTPListParseException ex) {
                     Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-                    conninfo.setText("ERROR: cannot find files");
+                    conninfo.add("ERROR: cannot find files");
                 }
+                 conninfo.add("Connection to Host: " + host + " successfull" );
             } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
                 Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-                conninfo.setText("ERROR: Username or Password is incorrect");
+                conninfo.add("ERROR: Username or Password is incorrect");
             }
+            conninfo.add("Login as : " + username + " was successfull" );
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
             Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-            conninfo.setText("ERROR: Cannot connect to Host");
+            conninfo.add("ERROR: Cannot connect to Host");
         }
         
         //Loop through file array to grab names
@@ -280,6 +285,10 @@ public class ShiFTPUI extends javax.swing.JFrame {
     private void serverfiledisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverfiledisplayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_serverfiledisplayActionPerformed
+
+    private void conninfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conninfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conninfoActionPerformed
     
     private void displayLocalFiles(String p1)
     {
@@ -335,12 +344,11 @@ public class ShiFTPUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel coninfolabel;
     private javax.swing.JButton connect;
-    private javax.swing.JTextPane conninfo;
+    private java.awt.List conninfo;
     private javax.swing.JTextField hostbox;
     private javax.swing.JLabel hostboxlabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
     private java.awt.List list1;
     private java.awt.List localfiledisplay;
