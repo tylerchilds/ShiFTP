@@ -256,17 +256,36 @@ public class ShiFTPUI extends javax.swing.JFrame {
                     files = client.listNames();
                 } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException | FTPDataTransferException | FTPAbortedException | FTPListParseException ex) {
                     Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< HEAD
                     conninfo.add("ERROR: cannot find files", 0);
+=======
+<<<<<<< HEAD
+                    conninfo.add("ERROR: connection issue");
+                    return;
+=======
+                    conninfo.add("ERROR: cannot find files", 0);
+>>>>>>> 4f2a0e0cd760ada5e46d182e59752e575b1cfe25
+>>>>>>> fixing stuff
                 }
                  conninfo.add("Connection to Host: " + host + " successfull", 0);
             } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
                 Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-                conninfo.add("ERROR: Username or Password is incorrect");
+                conninfo.add("ERROR: connection issue");
+                return;
             }
             conninfo.add("Login as : " + username + " was successfull", 0);
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
             Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< HEAD
             conninfo.add("ERROR: Cannot connect to Host", 0);
+=======
+<<<<<<< HEAD
+            conninfo.add("ERROR: connection issue");
+            return;
+=======
+            conninfo.add("ERROR: Cannot connect to Host", 0);
+>>>>>>> 4f2a0e0cd760ada5e46d182e59752e575b1cfe25
+>>>>>>> fixing stuff
         }
         
         //Loop through file array to grab names
