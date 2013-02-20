@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 //package my.numberaddition;
-import it.sauronsoftware.ftp4j.*;
+import org.apache.commons.net.ftp.*;
 //import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +38,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         String port;
         String[] files;
         static String localPath;
+        boolean error = false;
         
         //Initiate FTP Class
         FTPClient client = new FTPClient();
@@ -238,7 +239,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
 
     private void connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectActionPerformed
        
-        //When Connect Button is Clicked
+       //When Connect Button is Clicked
         username = uname.getText();
         password = pass.getText();
         host = hostbox.getText();
@@ -247,45 +248,21 @@ public class ShiFTPUI extends javax.swing.JFrame {
        //Convert port into integer
        int portint = Integer.parseInt(port);
         
-        //Had to surround with a try catch for the exceptions (I dont know how this works?)
-        try {
+       try{
             client.connect(host,portint);
-            try {
-                client.login(username,password);
-                try {
-                    files = client.listNames();
-                } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException | FTPDataTransferException | FTPAbortedException | FTPListParseException ex) {
-                    Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-<<<<<<< HEAD
-                    conninfo.add("ERROR: cannot find files", 0);
-=======
-<<<<<<< HEAD
-                    conninfo.add("ERROR: connection issue");
-                    return;
-=======
-                    conninfo.add("ERROR: cannot find files", 0);
->>>>>>> 4f2a0e0cd760ada5e46d182e59752e575b1cfe25
->>>>>>> fixing stuff
-                }
-                 conninfo.add("Connection to Host: " + host + " successfull", 0);
-            } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
-                Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-                conninfo.add("ERROR: connection issue");
-                return;
+            client.login(username,password);
+            files = client.listNames();
+        } catch(IOException e){
+            error = true;
+            e.printStackTrace();
+        } finally {
+            if(client.isConnected()) {
+              try {
+                client.disconnect();
+              } catch(IOException ioe) {
+                // do nothing
+              }
             }
-            conninfo.add("Login as : " + username + " was successfull", 0);
-        } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
-            Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-<<<<<<< HEAD
-            conninfo.add("ERROR: Cannot connect to Host", 0);
-=======
-<<<<<<< HEAD
-            conninfo.add("ERROR: connection issue");
-            return;
-=======
-            conninfo.add("ERROR: Cannot connect to Host", 0);
->>>>>>> 4f2a0e0cd760ada5e46d182e59752e575b1cfe25
->>>>>>> fixing stuff
         }
         
         //Loop through file array to grab names
@@ -293,7 +270,6 @@ public class ShiFTPUI extends javax.swing.JFrame {
         {
             serverfiledisplay.add(files[i]);
         }  
-        
         
     }//GEN-LAST:event_connectActionPerformed
 
