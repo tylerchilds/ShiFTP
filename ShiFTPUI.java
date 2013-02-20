@@ -256,17 +256,17 @@ public class ShiFTPUI extends javax.swing.JFrame {
                     files = client.listNames();
                 } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException | FTPDataTransferException | FTPAbortedException | FTPListParseException ex) {
                     Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-                    conninfo.add("ERROR: cannot find files");
+                    conninfo.add("ERROR: cannot find files", 0);
                 }
-                 conninfo.add("Connection to Host: " + host + " successfull" );
+                 conninfo.add("Connection to Host: " + host + " successfull", 0);
             } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
                 Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
                 conninfo.add("ERROR: Username or Password is incorrect");
             }
-            conninfo.add("Login as : " + username + " was successfull" );
+            conninfo.add("Login as : " + username + " was successfull", 0);
         } catch (IllegalStateException | IOException | FTPIllegalReplyException | FTPException ex) {
             Logger.getLogger(ShiFTPUI.class.getName()).log(Level.SEVERE, null, ex);
-            conninfo.add("ERROR: Cannot connect to Host");
+            conninfo.add("ERROR: Cannot connect to Host", 0);
         }
         
         //Loop through file array to grab names
