@@ -10,9 +10,9 @@ FTP Client written in Java
 
 ##Libraries
 
-###FTP4J
+###Apache Commons
 Java FTP Library
 
-[Source](http://www.sauronsoftware.it/projects/ftp4j/)
+[Source](http://commons.apache.org/net/download_net.cgi)
 
-[Documentation](http://www.sauronsoftware.it/projects/ftp4j/manual.php)
+[Documentation](http://commons.apache.org/net/api-3.2/index.html)
