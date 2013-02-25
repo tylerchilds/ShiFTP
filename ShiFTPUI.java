@@ -255,7 +255,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
         } catch(IOException e){
             error = true;
             e.printStackTrace();
-            conninfo.add("ERROR: connection issue");
+            conninfo.add("ERROR: connection issue", 0);
         } finally {
             if(client.isConnected()) {
               try {
@@ -263,6 +263,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
               } catch(IOException ioe) {
                 // do nothing
               }
+              conninfo.add("Connection successful", 0);
             }
         }
         
