@@ -239,7 +239,7 @@ public class ShiFTPUI extends javax.swing.JFrame {
 
     private void connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectActionPerformed
        
-       //When Connect Button is Clicked
+        //When Connect Button is Clicked
         username = uname.getText();
         password = pass.getText();
         host = hostbox.getText();
