@@ -2,6 +2,8 @@
 
 FTP Client written in Java
 
+**If you're thinking about downloading this, there are literally dozens of better ftp clients that would be better**
+
 ##Contributors
 * [Tyler Childs](https://github.com/tylerchilds)
 * [Brandon Kreisel](https://github.com/BKreisel)
